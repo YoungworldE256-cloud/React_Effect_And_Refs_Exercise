@@ -1,0 +1,114 @@
+.deck-page {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.deck-panel {
+  width: min(1100px, 100%);
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 28px;
+  padding: 4rem 3rem;
+  box-shadow: 0 25px 70px rgba(0, 80, 150, 0.18);
+  backdrop-filter: blur(14px);
+  text-align: center;
+}
+
+.deck-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  margin: 0;
+  font-family: Georgia, serif;
+  color: #071d3d;
+}
+
+.deck-subtitle {
+  font-size: 1.25rem;
+  color: #334155;
+  margin-bottom: 2rem;
+}
+
+.deck-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.deck-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 1rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deck-btn:hover {
+  transform: translateY(-3px);
+}
+
+.draw-btn {
+  background: linear-gradient(135deg, #0ea5ff, #0077ee);
+  color: white;
+  box-shadow: 0 12px 25px rgba(0, 119, 238, 0.35);
+}
+
+.shuffle-btn {
+  background: #d7efff;
+  color: #073b8e;
+  border: 1px solid #8ed0ff;
+  box-shadow: 0 10px 22px rgba(0, 119, 238, 0.18);
+}
+
+.deck-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.deck-info {
+  width: min(700px, 100%);
+  margin: 0 auto 2.5rem;
+  padding: 1.5rem;
+  border: 1px solid #9bd6ff;
+  border-radius: 18px;
+  background: rgba(229, 246, 255, 0.75);
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #334155;
+  text-transform: uppercase;
+}
+
+.info-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0b72e7;
+}
+
+.cards-title {
+  color: #0b57d0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.card-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
