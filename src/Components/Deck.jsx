@@ -12,41 +12,58 @@ function Deck() {
   const [shuffling, setShuffling] = useState(false);
 
   useEffect(() => {
-    async function createDeck() {
+   async function createDeck() {
+    try {
       const res = await fetch(`${BASE_URL}/new/shuffle/?deck_count=1`);
       const data = await res.json();
 
       setDeckId(data.deck_id);
       setRemaining(data.remaining);
+    } catch (err) {
+      console.error("Error creating deck:", err);
+      alert("Failed to load deck. Please refresh.");
+    } finally {
       setLoading(false);
     }
+  }
 
-    createDeck();
-  }, []);
+  createDeck();
+}, []);
 
   async function drawCard() {
-    if (remaining === 0) {
-      alert("Error: no cards remaining!");
-      return;
-    }
+  if (remaining === 0) {
+    alert("Error: no cards remaining!");
+    return;
+  }
 
+  try {
     const res = await fetch(`${BASE_URL}/${deckId}/draw/?count=1`);
     const data = await res.json();
 
-    setCards(currCards => [...currCards, data.cards[0]]);
+    setCards(curr => [...curr, data.cards[0]]);
     setRemaining(data.remaining);
+  } catch (err) {
+    console.error("Error drawing card:", err);
+    alert("Failed to draw card.");
   }
+}
 
   async function shuffleDeck() {
-    setShuffling(true);
+  setShuffling(true);
 
+  try {
     const res = await fetch(`${BASE_URL}/${deckId}/shuffle/`);
     const data = await res.json();
 
     setCards([]);
     setRemaining(data.remaining);
+  } catch (err) {
+    console.error("Error shuffling deck:", err);
+    alert("Failed to shuffle deck.");
+  } finally {
     setShuffling(false);
   }
+}
 
   if (loading) return <h1>Loading deck...</h1>;
 
